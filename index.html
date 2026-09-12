@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AmphiMedia — Photography, videography and creative production for weddings, brands, events, creators and more. Because Some Moments Deserve Forever." />
+  <meta name="theme-color" content="#0d0b08" />
+  <title>AmphiMedia — Because Some Moments Deserve Forever</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+
+    :root {
+      --bg: #0b0907;
+      --bg-soft: #12100d;
+      --cream: #f5efe3;
+      --muted: #bdb4a5;
+      --gold: #c9a35d;
+      --gold-soft: #e1c98e;
+      --line: rgba(225, 201, 142, .18);
+      --white: #fffaf1;
+      --shadow: 0 25px 80px rgba(0,0,0,.45);
+      --radius: 24px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(201,163,93,.08), transparent 28%),
+        radial-gradient(circle at 80% 30%, rgba(201,163,93,.06), transparent 26%),
+        var(--bg);
+      color: var(--cream);
+      font-family: 'DM Sans', system-ui, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .04;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+      z-index: 20;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(11,9,7,.9), rgba(11,9,7,.42));
+      border-bottom: 1px solid rgba(255,255,255,.05);
+    }
+    .nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 25px;
+      letter-spacing: .02em;
+      white-space: nowrap;
+    }
+    .brand-mark {
+      width: 34px; height: 34px;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      display: grid; place-items: center;
+      color: var(--gold-soft);
+      font-size: 18px;
+      position: relative;
+    }
+    .brand-mark::after {
+      content: '';
+      position: absolute;
+      inset: 5px;
+      border: 1px solid rgba(201,163,93,.5);
+      border-radius: 50%;
+    }
+    nav { display: flex; gap: 28px; align-items: center; }
+    nav a { color: #ddd5c7; font-size: 13px; letter-spacing: .04em; transition: .3s; }
+    nav a:hover { color: var(--gold-soft); }
+    .nav-cta { padding: 11px 16px; border: 1px solid var(--line); border-radius: 999px; }
+    .menu-btn { display: none; background: transparent; color: var(--cream); border: 0; font-size: 28px; }
+
+    .hero { min-height: 100svh; display: grid; align-items: end; padding: 130px 0 70px; position: relative; overflow: hidden; }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(90deg, rgba(7,6,4,.94) 0%, rgba(7,6,4,.62) 38%, rgba(7,6,4,.22) 100%),
+                  linear-gradient(0deg, rgba(11,9,7,.95) 0%, rgba(11,9,7,.12) 55%, rgba(11,9,7,.65) 100%);
+      z-index: 1;
+    }
+    .hero-media {
+      position: absolute; inset: 0;
+      background: url('assets/amphi-media-logo.png') center 43% / cover no-repeat;
+      filter: saturate(.82) contrast(1.04) brightness(.56);
+      transform: scale(1.015);
+    }
+    .hero-inner { position: relative; z-index: 2; max-width: 860px; }
+    .eyebrow { color: var(--gold-soft); text-transform: uppercase; letter-spacing: .24em; font-size: 11px; font-weight: 600; margin-bottom: 16px; }
+    h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 500; }
+    h1 { font-size: clamp(54px, 7vw, 102px); line-height: .94; margin: 0; letter-spacing: -.03em; }
+    .hero-copy { max-width: 650px; margin: 24px 0 30px; color: #ddd5c7; font-size: clamp(16px, 2vw, 19px); }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      border-radius: 999px; padding: 14px 22px; font-size: 13px; font-weight: 600;
+      letter-spacing: .03em; transition: transform .25s, box-shadow .25s, background .25s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { color: #16120b; background: var(--gold-soft); box-shadow: 0 12px 28px rgba(201,163,93,.2); }
+    .btn-secondary { border: 1px solid rgba(255,255,255,.18); color: var(--white); background: rgba(255,255,255,.03); }
+    .hero-note { margin-top: 34px; display: flex; gap: 26px; flex-wrap: wrap; color: #c7beae; font-size: 12px; }
+    .hero-note span { display:flex; align-items:center; gap:8px; }
+    .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); }
+
+    section { padding: 110px 0; }
+    .section-head { display:flex; align-items:end; justify-content:space-between; gap: 30px; margin-bottom: 48px; }
+    .section-head h2 { margin: 6px 0 0; font-size: clamp(42px, 6vw, 66px); line-height: .95; }
+    .section-head p { max-width: 520px; color: var(--muted); margin: 0; }
+
+    .intro-grid { display:grid; grid-template-columns: 1.1fr .9fr; gap: 26px; align-items: stretch; }
+    .quote-card, .story-card { border: 1px solid var(--line); border-radius: var(--radius); background: linear-gradient(145deg, rgba(255,255,255,.04), rgba(255,255,255,.015)); box-shadow: var(--shadow); }
+    .quote-card { padding: 42px; display:flex; flex-direction:column; justify-content:space-between; min-height: 380px; }
+    .quote-card blockquote { margin: 0; font-family:'Cormorant Garamond', serif; font-size: clamp(34px, 4vw, 52px); line-height: 1.02; }
+    .quote-card footer { color: var(--gold-soft); font-size: 12px; letter-spacing:.15em; text-transform:uppercase; }
+    .story-card { padding: 34px; display:flex; flex-direction:column; justify-content:center; }
+    .story-card p { color:#c6beaf; margin:0 0 18px; }
+    .story-card strong { color:var(--white); }
+
+    .services { display:grid; grid-template-columns:repeat(3, 1fr); gap: 14px; }
+    .service { padding: 28px 24px; border:1px solid var(--line); border-radius: 18px; background: rgba(255,255,255,.025); min-height: 178px; transition:.28s; }
+    .service:hover { transform: translateY(-5px); border-color: rgba(225,201,142,.45); background: rgba(255,255,255,.04); }
+    .service-number { color:var(--gold-soft); font-size:11px; letter-spacing:.18em; }
+    .service h3 { margin: 22px 0 6px; font-size: 28px; }
+    .service p { margin:0; color:#a9a194; font-size:13px; }
+
+    .band { padding: 34px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+    .band-inner { display:flex; gap:24px; align-items:center; justify-content:space-between; flex-wrap:wrap; }
+    .band-text { color:#cfc6b7; font-size:14px; }
+    .band-text b { color:var(--gold-soft); }
+
+    .process { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+    .step { padding: 22px 22px 26px; border-top:1px solid var(--gold); background:linear-gradient(to bottom, rgba(201,163,93,.07), transparent 65%); border-radius:14px; }
+    .step .num { color:var(--gold-soft); font-size:12px; letter-spacing:.15em; }
+    .step h3 { font-size:31px; margin:12px 0 8px; }
+    .step p { margin:0; color:#a9a194; font-size:13px; }
+
+    .cta { padding:0 0 110px; }
+    .cta-box { position:relative; overflow:hidden; border:1px solid var(--line); border-radius:30px; padding: 64px 46px; background: radial-gradient(circle at 85% 20%, rgba(201,163,93,.16), transparent 35%), linear-gradient(145deg, #17130e, #0e0c09); }
+    .cta-box::after { content:'AM'; position:absolute; right:-22px; bottom:-70px; font-family:'Cormorant Garamond',serif; font-size:240px; color:rgba(201,163,93,.05); }
+    .cta-box h2 { font-size: clamp(44px,6vw,78px); margin:0 0 12px; line-height:.95; }
+    .cta-box p { max-width:650px; color:#b7afa1; margin:0 0 26px; }
+
+    footer { border-top:1px solid rgba(255,255,255,.07); padding: 32px 0 42px; }
+    .footer-grid { display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap; }
+    .footer-brand { font-family:'Cormorant Garamond',serif; font-size:29px; }
+    .footer-sub { color:#90887d; font-size:12px; margin-top:3px; }
+    .footer-links { display:flex; gap:18px; flex-wrap:wrap; align-items:center; }
+    .footer-links a { color:#bab1a3; font-size:12px; }
+    .copyright { margin-top:22px; color:#6f675e; font-size:11px; }
+
+    .reveal { opacity:0; transform: translateY(22px); transition: opacity .75s ease, transform .75s ease; }
+    .reveal.visible { opacity:1; transform:none; }
+
+    @media (max-width: 900px) {
+      nav { position:absolute; top:78px; left:20px; right:20px; padding:18px; background:#12100d; border:1px solid var(--line); border-radius:16px; display:none; flex-direction:column; align-items:stretch; }
+      nav.open { display:flex; }
+      nav a { padding:8px 4px; }
+      .menu-btn { display:block; }
+      .intro-grid { grid-template-columns:1fr; }
+      .services { grid-template-columns:repeat(2,1fr); }
+      .process { grid-template-columns:repeat(2,1fr); }
+      .section-head { align-items:flex-start; flex-direction:column; }
+    }
+    @media (max-width: 620px) {
+      .container { width:min(var(--max), calc(100% - 28px)); }
+      .hero { padding-bottom: 44px; }
+      .hero-media { background-position: 54% center; }
+      h1 { font-size: clamp(50px, 15vw, 76px); }
+      section { padding: 78px 0; }
+      .services { grid-template-columns:1fr; }
+      .process { grid-template-columns:1fr; }
+      .quote-card, .story-card { padding:28px; }
+      .cta-box { padding:42px 28px; }
+      .cta-box::after { font-size:170px; right:-10px; bottom:-40px; }
+      .hero-actions .btn { width:100%; }
+      .band-inner { align-items:flex-start; flex-direction:column; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home"><span class="brand-mark">A</span><span>AmphiMedia</span></a>
+      <button class="menu-btn" aria-label="Toggle menu" onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#contact" class="nav-cta">Book a Shoot</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="hero-media" aria-hidden="true"></div>
+      <div class="container hero-inner reveal">
+        <div class="eyebrow">Creative Production Studio · Est. 2026</div>
+        <h1>Because Some Moments<br/>Deserve Forever.</h1>
+        <p class="hero-copy">AmphiMedia creates cinematic photographs, films and social content for people, brands, celebrations and businesses — from intimate stories to full-scale productions.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://wa.me/919311318655?text=Hi%20AmphiMedia%2C%20I%27d%20like%20to%20discuss%20a%20shoot." target="_blank" rel="noopener">Book a Shoot ↗</a>
+          <a class="btn btn-secondary" href="#services">Explore Services</a>
+        </div>
+        <div class="hero-note">
+          <span><i class="dot"></i> Photography</span>
+          <span><i class="dot"></i> Videography</span>
+          <span><i class="dot"></i> Creative Production</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">The studio</div>
+            <h2>Made to feel.<br/>Built to last.</h2>
+          </div>
+          <p>We turn real moments into visual stories with a balance of direction, emotion and detail. Whether it is a wedding, a campaign, a reel or a one-day event, the goal stays the same: make it memorable.</p>
+        </div>
+        <div class="intro-grid">
+          <article class="quote-card reveal">
+            <blockquote>“We don’t just capture what happened. We create something you’ll want to watch again.”</blockquote>
+            <footer>AmphiMedia philosophy</footer>
+          </article>
+          <article class="story-card reveal">
+            <div class="eyebrow">What you get</div>
+            <p><strong>Creative direction</strong> that fits your story and audience.</p>
+            <p><strong>Cinematic visuals</strong> designed for both memories and modern platforms.</p>
+            <p><strong>Reliable execution</strong> from planning and shoot day through final delivery.</p>
+            <p><strong>One studio</strong> for photography, video and content needs across occasions.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">What we shoot</div>
+            <h2>One studio.<br/>Every kind of story.</h2>
+          </div>
+          <p>From personal celebrations to commercial campaigns, choose a shoot that matches your vision — or tell us what you need and we’ll shape the production with you.</p>
+        </div>
+        <div class="services">
+          <article class="service reveal"><div class="service-number">01</div><h3>Weddings & Pre-Weddings</h3><p>Emotion-led photography, cinematic films, rituals, portraits and complete wedding coverage.</p></article>
+          <article class="service reveal"><div class="service-number">02</div><h3>Events & Celebrations</h3><p>Birthdays, engagements, parties, launches, ceremonies, aftermovies and event highlights.</p></article>
+          <article class="service reveal"><div class="service-number">03</div><h3>Brand & Product</h3><p>Campaigns, product visuals, launch films, ads and content designed to move people.</p></article>
+          <article class="service reveal"><div class="service-number">04</div><h3>Corporate</h3><p>Company stories, interviews, office films, conferences, headshots and internal content.</p></article>
+          <article class="service reveal"><div class="service-number">05</div><h3>Fashion & Models</h3><p>Editorial portraits, lookbooks, campaign shoots, model portfolios and fashion films.</p></article>
+          <article class="service reveal"><div class="service-number">06</div><h3>Creators & Reels</h3><p>Instagram reels, YouTube content, creator shoots and short-form content built for social.</p></article>
+          <article class="service reveal"><div class="service-number">07</div><h3>Food & Hospitality</h3><p>Restaurant content, food photography, chef portraits, ambience films and promotional reels.</p></article>
+          <article class="service reveal"><div class="service-number">08</div><h3>Real Estate</h3><p>Property photography, walkthrough videos, reels, aerial perspectives and marketing content.</p></article>
+          <article class="service reveal"><div class="service-number">09</div><h3>Music & Short Films</h3><p>Music videos, narrative films, cinematic concepts and visual storytelling from idea to final cut.</p></article>
+          <article class="service reveal"><div class="service-number">10</div><h3>Portraits & Lifestyle</h3><p>Personal portraits, family sessions, maternity, baby, lifestyle and creative concepts.</p></article>
+          <article class="service reveal"><div class="service-number">11</div><h3>Promotional Films</h3><p>Commercials, brand stories, social campaigns and performance-led video content.</p></article>
+          <article class="service reveal"><div class="service-number">12</div><h3>Drone & Aerial</h3><p>Aerial establishing shots and dynamic perspectives for events, properties and productions.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <div class="band">
+      <div class="container band-inner">
+        <div class="band-text">Need something specific? <b>Tell us the idea.</b> We’ll build the shoot around it.</div>
+        <a class="btn btn-secondary" href="mailto:amphimediaofficial@gmail.com?subject=Shoot%20Enquiry%20for%20AmphiMedia">Email the Studio ↗</a>
+      </div>
+    </div>
+
+    <section id="process">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">How it works</div>
+            <h2>Simple process.<br/>Serious results.</h2>
+          </div>
+          <p>We keep the experience straightforward so you can focus on the moment, the people and the work — while we handle the visual side.</p>
+        </div>
+        <div class="process">
+          <article class="step reveal"><div class="num">01 · CONNECT</div><h3>Tell us the brief</h3><p>Share the occasion, idea, date, location and what you want the final content to feel like.</p></article>
+          <article class="step reveal"><div class="num">02 · PLAN</div><h3>Build the shoot</h3><p>We suggest the right team, format, timings and visual approach for the job.</p></article>
+          <article class="step reveal"><div class="num">03 · CREATE</div><h3>Shoot day</h3><p>We handle direction, coverage and capture while keeping the atmosphere natural and efficient.</p></article>
+          <article class="step reveal"><div class="num">04 · DELIVER</div><h3>Final story</h3><p>Your photographs and films are edited, polished and delivered in the agreed format.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="contact">
+      <div class="container">
+        <div class="cta-box reveal">
+          <div class="eyebrow">Let’s create</div>
+          <h2>Your story starts here.</h2>
+          <p>Tell AmphiMedia what you’re planning — a wedding, event, brand campaign, reel, portrait session or something completely new.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://wa.me/919311318655?text=Hi%20AmphiMedia%2C%20I%27d%20like%20to%20book%20a%20shoot." target="_blank" rel="noopener">WhatsApp Us ↗</a>
+            <a class="btn btn-secondary" href="tel:+919311318655">Call +91 93113 18655</a>
+            <a class="btn btn-secondary" href="mailto:amphimediaofficial@gmail.com">amphimediaofficial@gmail.com</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">AmphiMedia</div>
+          <div class="footer-sub">Because Some Moments Deserve Forever.</div>
+        </div>
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#process">Process</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+      <div class="copyright">© 2026 AmphiMedia. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', () => document.querySelector('nav').classList.remove('open'));
+    });
+  </script>
+</body>
+</html>
